@@ -1,0 +1,91 @@
+<html>
+    <head>
+        <title>TELE-NUMBER</title>
+
+        <script>
+
+            var ichiran = new Array();
+
+            function addDianhua(){
+                var d1 = document.getElementById("data1");
+                d1.innerHTML = "Input NAME <input type='text' name='username' id='yournameid'/> "
+                +"<br>Input TEL. <input type='text' name='tel' id='telid' /> "
+                +"<br><button onclick='doAdd()'>ADD</button>";
+            }
+        
+            function doAdd(){
+                var xingming = document.getElementById("yournameid").value;
+                var dianhua = document.getElementById("telid").value;
+                var oneRecord = new Object();
+                oneRecord.mingzi = xingming;
+                oneRecord.tel = dianhua;
+                ichiran.push(oneRecord);
+                alert("Complete!");
+            }
+
+            function DisDianhua(){
+                var yilan = "<table border='1'>";
+                var i;
+                for( i=0; i <= ichiran.length - 1; i++ )
+                {
+                    yilan = yilan + "<tr> <td>" + ichiran[i].mingzi + "</td> <td>" + ichiran[i].tel + "</td> </tr>";
+                }
+                yilan = yilan + "</table>"
+
+                var d1 = document.getElementById("data1");
+                d1.innerHTML = yilan;
+            }
+
+            function UpdDianhua(){
+                var d1 = document.getElementById("data1");
+                d1.innerHTML = "Input newname <input type = 'text' name = 'updname' id = 'updnameid' />"
+                + "<br> Input newTel. <input type = 'text' name = 'newtel' id = 'newtelid' />"
+                + "<br> <button onclick = 'doUpdate()'>UPDATE</button>";
+            }
+
+
+            function doUpdate(){
+                var uname = document.getElementById("updnameid").value;
+                var xinDianhua = document.getElementById("newtelid").value;
+
+                var flag = "NULL!";
+
+                var i ;
+                for(i=0; i<=ichiran.length-1; i++){
+
+                    if ( ichiran[i].mingzi == uname ){
+                        ichiran[i].tel = xinDianhua;
+                        flag = "EXIST!";
+                    }
+                }
+
+                if(flag == "NULL"){
+                    alert("Update failed");
+                }else{
+                    alert("Update successful");
+                }
+            }
+
+        </script>
+
+
+    </head>
+
+
+    <body>
+        Telesystem<br>
+        <button onclick="addDianhua()">addtelenumber</button>
+        <button onclick="addDianhua()">deletelenumber</button>
+        <button onclick="DisDianhua()">showtelenumber</button>
+        <button onclick="UpdDianhua()">updatelenumber</button>
+        <hr color="red">
+        <br>
+        <br>
+
+        <div id="data1">
+
+        </div>
+
+    </body>
+
+</html>

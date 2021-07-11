@@ -1,0 +1,47 @@
+<html>
+    <head>
+        <script src="jquery-3.4.1.min.js"></script>
+
+        <script>
+            //jquert的入口，取得当前页面,$号代表查找，调用
+            $(document).ready(
+                //建function，但无名
+                function()
+                {
+                    //用#号查找id，得到按钮，调用click方法
+                    $("#b1").click(
+                        function()
+                        {
+                            //元素选择器，取得画面上所有p
+                            $("p").hide();
+                        }
+                    );
+
+                    $("#b5").click(
+                        function()
+                        {
+                            //class分类选择器,调用隐藏方法，隐藏对应分类
+                            $(".fenlei1").hide();
+                        }
+                    );
+                }
+            );
+
+        </script>
+
+
+    </head>
+
+    <body>
+
+        <p class="fenlei1">hello</p>
+        <p >nihao</p>
+        <p class="fenlei1">nice</p>
+
+        <button id="b1">隠す</button>
+        <button id="b5">一部隠す</button>
+        <button id="b2">表示</button>
+
+    </body>
+
+</html>
